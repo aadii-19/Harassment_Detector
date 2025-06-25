@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Harassment Detector",
+  "version": "1.0",
+  "description": "Detects harassment in social media messages and alerts admins.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.twitter.com/*", "*://*.facebook.com/*", "*://*.slack.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}
